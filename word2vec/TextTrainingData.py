@@ -79,7 +79,7 @@ class TextTrainingData:
 				all_indexes[item[0]].append(item[1])
 
 		for i in range(len(all_indexes)):
-			self.docs[i] = TextTrainingData.remove_indexes(self.docs[i], all_indexes[i])
+			self.docs[i] = self.remove_indexes(self.docs[i], all_indexes[i])
 
 		num_infrequent = len(self._infrequent_tokens.keys())
 		self._infrequent_tokens = {}
@@ -90,7 +90,7 @@ class TextTrainingData:
 	## Removes the elements at the indexes specified in index_list from
 	# main_list
 	#
-	def remove_indexes(main_list, index_list):
+	def remove_indexes(self, main_list, index_list):
 		if len(index_list) == 0:
 			return main_list[:]
 
